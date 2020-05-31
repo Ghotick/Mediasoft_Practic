@@ -6,17 +6,14 @@ function string_count($str)
 
     $str = preg_split("/[\s!.,?]+/", $str);
     $newstr = array_fill_keys($str, 0);
+    foreach ($str as $word)
+    {
+        $newstr[$word]++;
+    }
 
-    foreach ($newstr as $key => $value) {
-
-
-        for ($j = 0; $j < count($str); $j++) {
-            if ($key === $str[$j]) {
-                $value++;
-            }
-        }
+    foreach ($newstr as $key => $value)
+    {
         echo $key . ':' . $value . PHP_EOL;
-
     }
 
     echo 'Всего слов ' . count($str) . PHP_EOL;
